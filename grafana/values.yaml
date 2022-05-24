@@ -716,7 +716,7 @@ metrics:
 imageRenderer:
   ## @param imageRenderer.enabled Enable using a remote rendering service to render PNG images
   ##
-  enabled: false
+  enabled: true
   ## Bitnami Grafana Image Renderer image
   ## ref: https://hub.docker.com/r/bitnami/grafana-image-renderer/tags/
   ## @param imageRenderer.image.registry Grafana Image Renderer image registry
