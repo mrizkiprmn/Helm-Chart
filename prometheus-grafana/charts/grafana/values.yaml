@@ -76,7 +76,7 @@ image:
   repository: grafana/grafana
   tag: 8.5.0
   sha: ""
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
   ## Optionally specify an array of imagePullSecrets.
   ## Secrets must be manually created in the namespace.
@@ -90,7 +90,7 @@ testFramework:
   enabled: true
   image: "bats/bats"
   tag: "v1.4.1"
-  imagePullPolicy: IfNotPresent
+  imagePullPolicy: Always
   securityContext: {}
 
 securityContext:
@@ -126,7 +126,7 @@ downloadDashboardsImage:
   repository: curlimages/curl
   tag: 7.73.0
   sha: ""
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 downloadDashboards:
   env: {}
@@ -150,7 +150,7 @@ podPortName: grafana
 ##
 service:
   enabled: true
-  type: ClusterIP
+  type: NodePort
   port: 80
   targetPort: 3000
     # targetPort: 4181 To be used with a proxy extraContainer
@@ -281,11 +281,11 @@ extraContainerVolumes: []
 ##
 persistence:
   type: pvc
-  enabled: false
+  enabled: true
   # storageClassName: default
   accessModes:
     - ReadWriteOnce
-  size: 10Gi
+  size: 8Gi
   # annotations: {}
   finalizers:
     - kubernetes.io/pvc-protection
@@ -318,7 +318,7 @@ initChownData:
     repository: busybox
     tag: "1.31.1"
     sha: ""
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
 
   ## initChownData resource requests and limits
   ## Ref: http://kubernetes.io/docs/user-guide/compute-resources/
@@ -649,7 +649,7 @@ sidecar:
     repository: quay.io/kiwigrid/k8s-sidecar
     tag: 1.15.6
     sha: ""
-  imagePullPolicy: IfNotPresent
+  imagePullPolicy: Always
   resources: {}
 #   limits:
 #     cpu: 100m
