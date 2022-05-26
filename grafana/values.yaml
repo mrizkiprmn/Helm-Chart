@@ -90,7 +90,7 @@ admin:
 smtp:
   ## @param smtp.enabled Enable SMTP configuration
   ##
-  enabled: false
+  enabled: true
   ## @param smtp.user SMTP user
   ##
   user: user
@@ -101,7 +101,7 @@ smtp:
   ## e.g:
   ##   host: mysmtphost.com
   ##
-  host: ""
+  host: smtp.gmail.com:587
   ## @param smtp.fromAddress From address
   ##
   fromAddress: ""
@@ -110,16 +110,16 @@ smtp:
   fromName: ""
   ## @param smtp.skipVerify Enable skip verify
   ##
-  skipVerify: "false"
+  skipVerify: true
   ## @param smtp.existingSecret Name of existing secret containing SMTP credentials (user and password)
   ##
-  existingSecret: ""
+  existingSecret: grafana-smtp
   ## @param smtp.existingSecretUserKey User key on the existing secret
   ##
-  existingSecretUserKey: user
+  existingSecretUserKey: GF_SMTP_PASSWORD
   ## @param smtp.existingSecretPasswordKey Password key on the existing secret
   ##
-  existingSecretPasswordKey: password
+  existingSecretPasswordKey: GF_SMTP_USER
 ## @param plugins Grafana plugins to be installed in deployment time separated by commas
 ## Specify plugins as a list separated by commas ( you will need to scape them when specifying from command line )
 ## Example:
@@ -716,7 +716,7 @@ metrics:
 imageRenderer:
   ## @param imageRenderer.enabled Enable using a remote rendering service to render PNG images
   ##
-  enabled: false
+  enabled: true
   ## Bitnami Grafana Image Renderer image
   ## ref: https://hub.docker.com/r/bitnami/grafana-image-renderer/tags/
   ## @param imageRenderer.image.registry Grafana Image Renderer image registry
