@@ -64,8 +64,7 @@ defaultRules:
   ## Labels for default rules
   labels: {}
   ## Annotations for default rules
-  annotations:
-     secret.reloader.stakater.com/reload: additional-scrape-configs
+  annotations: {}
 
   ## Additional labels for PrometheusRule alerts
   additionalRuleLabels: {}
@@ -1550,7 +1549,8 @@ prometheusOperator:
   ## Configuration for Prometheus operator service
   ##
   service:
-    annotations: {}
+    annotations:
+      prometheus.io/scrape: 'true'
     labels: {}
     clusterIP: ""
 
@@ -1724,6 +1724,11 @@ prometheusOperator:
   ## Prometheus-config-reloader
   ##
   prometheusConfigReloader:
+
+    annotations:
+      secret.reloader.stakater.com/reload: additional-scrape-configs
+
+
     # image to use for config and rule reloading
     image:
       repository: quay.io/prometheus-operator/prometheus-config-reloader
@@ -1758,7 +1763,8 @@ prometheus:
 
   ## Annotations for Prometheus
   ##
-  annotations: {}
+  annotations: 
+    secret.reloader.stakater.com/reload: additional-scrape-configs
 
   ## Service account for Prometheuses to use.
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
