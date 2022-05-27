@@ -1,0 +1,15 @@
+- job_name: 'prometheus'
+  static_configs:
+  - targets: ['localhost:9090']
+
+- job_name: 'app-frontend'
+  static_configs:
+  - targets: ['localhost:8080']
+
+- job_name: 'app-backend'
+  static_configs:
+  - targets: ['localhost:8888']
+
+- job_name: 'postgresql'
+  static_configs:
+  - targets: ['db-postgresql.app-backend.svc.cluster.local:5432']

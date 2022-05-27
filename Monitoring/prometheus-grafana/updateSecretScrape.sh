@@ -1,0 +1,1 @@
+kubectl create secret generic -n monitoring additional-scrape-configs --from-file=prometheus-additional.yaml --save-config --dry-run=client -oyaml > additional-scrape-configs.yaml
