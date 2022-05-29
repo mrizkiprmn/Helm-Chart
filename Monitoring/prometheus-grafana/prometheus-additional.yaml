@@ -2,18 +2,14 @@
   static_configs:
   - targets: ['localhost:9090']
 
-- job_name: 'app-frontend'
-  static_configs:
-  - targets: ['fe-frontend.app-frontend:8080']
-
 - job_name: 'app-backend'
   static_configs:
-  - targets: ['localhost:8888']
+  - targets: ['backend.app-backend:8888']
 
 - job_name: 'postgresql'
   static_configs:
-  - targets: ['db-postgresql.app-backend:5432']
+  - targets: ['app-postgresql-metrics.db-app:9187']
 
 - job_name: 'blackbox-metrics'
   static_configs:
-  - targets: ['blackbox-prometheus-blackbox-exporter.monitoring:9115']
+  - targets: ['prometheus-blackbox-exporter.monitoring:9115']

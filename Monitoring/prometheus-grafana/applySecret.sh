@@ -1,0 +1,1 @@
+kubectl apply -f additional-scrape-configs.yaml -n monitoring
