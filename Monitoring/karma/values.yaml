@@ -17,16 +17,16 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-# env:
-# - name: ALERTMANAGER_URI
-#   value: http://monitoring-prometheus-alertmanager
+env:
+  - name: ALERTMANAGER_URI
+    value: http://monitoring-kube-prometheus-alertmanager:9093
 
 service:
   type: ClusterIP
   port: 80
   annotations:
-    {}
-    # prometheus.io/scrape: "true"
+    prometheus.io/scrape: "true"
+    prometheus.io/port: 9090
   labels: {}
 
 serviceAccount:
@@ -111,7 +111,7 @@ existingSecretConfig:
 ## configMap dictates if a configmap based configuration for Karma should be used
 ## to provide advanced configuration. NOTE, you must use port 8080!
 configMap:
-  enabled: false
+  enabled: true
   annotations: {}
   ## karma compatible YAML configuration
   # rawConfig:
