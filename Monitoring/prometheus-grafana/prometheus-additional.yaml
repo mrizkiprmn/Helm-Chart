@@ -13,3 +13,7 @@
 - job_name: 'blackbox-metrics'
   static_configs:
   - targets: ['prometheus-blackbox-exporter.monitoring:9115']
+
+- job_name: 'influxdb'
+  static_configs:
+  - targets: ['influxdb.influxdb.svc.cluster.local:8086']
