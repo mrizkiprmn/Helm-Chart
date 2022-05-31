@@ -26,7 +26,7 @@ service:
   port: 80
   annotations:
     prometheus.io/scrape: "true"
-    prometheus.io/port: 9090
+    prometheus.io/port: "9090"
   labels: {}
 
 serviceAccount:
