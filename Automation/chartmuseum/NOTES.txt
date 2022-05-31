@@ -1,0 +1,7 @@
+
+########## delete chart #############
+curl -XDELETE http://localhost:8080/api/org-name/chart-name/version --> delete chart
+
+
+########## upload chart #############
+curl --data-binary "@chart-name-version.tgz" http://localhost:8080/api/org-name/repo-name/charts
