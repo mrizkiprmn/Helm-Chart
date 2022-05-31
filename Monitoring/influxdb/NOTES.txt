@@ -1,0 +1,15 @@
+to get token:
+
+export ADMIN_USER_TOKEN=$(kubectl get secret --namespace "influxdb" influxdb -o jsonpath="{.data.admin-user-token}" | base64 --decode)
+$echo ADMIN_USER_TOKEN
+
+kubectl exec -it <pod-name> -n <namespace> -- influx user password -n admin -t <token>
+
+noted!
+auth enabled : false
+
+
+
+
+
+

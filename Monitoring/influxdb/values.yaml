@@ -90,7 +90,7 @@ image:
 auth:
   ## @param auth.enabled Enable/disable authentication (Variable to keep compatibility with InfluxDB&trade; v1, in v2 it will be ignored)
   ##
-  enabled: true
+  enabled: false
   ## @param auth.usePasswordFiles Whether to use files to provide secrets instead of env vars.
   ##
   usePasswordFiles: false
@@ -102,10 +102,10 @@ auth:
     username: admin
     ## @param auth.admin.password InfluxDB&trade; admin user's password
     ##
-    password: ""
+    password: "admin123"
     ## @param auth.admin.token InfluxDB&trade; admin user's token. Only valid with InfluxDB&trade; v2
     ##
-    token: ""
+    token: "oIxN2zleQV0rA61sjJ7g"
     ## @param auth.admin.org InfluxDB&trade; admin user's org. Only valid with InfluxDB&trade; v2
     ##
     org: primary
