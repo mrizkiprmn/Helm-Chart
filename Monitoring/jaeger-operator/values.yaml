@@ -4,25 +4,41 @@
 
 image:
   repository: jaegertracing/jaeger-operator
-  tag: 1.32.0
+  tag: 1.34.1
   pullPolicy: IfNotPresent
   imagePullSecrets: []
 
-crd:
-  install: true
+certs:
+  issuer:
+    create: false
+    name: ""
+  certificate:
+    create: false
+    namespace: ""
+    secretName: ""
+
+webhooks:
+  mutatingWebhook:
+    create: true
+  validatingWebhook:
+    create: true
+  service:
+    annotations: {}
+    create: true
+    name: ""
 
 jaeger:
   # Specifies whether Jaeger instance should be created
-  create: false
+  create: true
   # namespace where Jaeger resource should be created default to .Release.Namespace
-  namespace:
+  namespace: monitoring
   spec: {}
 
 rbac:
   # Specifies whether RBAC resources should be created
   create: true
   pspEnabled: false
-  clusterRole: false
+  clusterRole: true
 
 service:
   type: ClusterIP
@@ -41,10 +57,10 @@ serviceAccount:
   annotations: {}
 
 # Specifies extra environment variables passed to the operator:
-extraEnv: []
+extraEnv:
   # Specifies log-level for the operator:
-  # - name: LOG-LEVEL
-  #   value: debug
+  - name: LOG-LEVEL
+    value: debug
 
 extraLabels: {}
   # Specifies extra labels for the operator deployment:
