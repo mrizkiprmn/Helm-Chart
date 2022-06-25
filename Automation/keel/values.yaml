@@ -4,7 +4,7 @@
 
 image:
   repository: keelhq/keel
-  tag: null
+  tag: latest
   pullPolicy: Always
 
 # Enable insecure registries
@@ -26,7 +26,7 @@ polling:
 helmProvider:
   enabled: true
   # set to version "v3" for Helm v3
-  version: "v2"
+  version: "v3"
   tillerNamespace: "kube-system"
   # optional Tiller address (if portforwarder tunnel doesn't work),
   # if you are using default configuration, setting it to
@@ -67,9 +67,9 @@ webhook:
 slack:
   enabled: true
   botName: "keel"
-  token: "xoxb-3711151226260-3743602748064-yHhZWmGsrij0DtBAEYRmBJB5"
-  channel: "devops"
-  approvalsChannel: ""
+  token: "xoxb-3711151226260-3743602748064-nHRGCPQ2WKksgD92NWjovDBs"
+  channel: "general"
+  approvalsChannel: "general"
 
 # Hipchat notification and approvals
 hipchat:
